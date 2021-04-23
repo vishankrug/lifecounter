@@ -128,6 +128,7 @@ struct ContentView: View {
                             }
                         }
                     }
+                    Divider().frame(height: 200).frame(width: 50)
                     VStack{
                         VStack{
                             HStack(spacing: 10) {
