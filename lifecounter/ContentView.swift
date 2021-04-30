@@ -30,6 +30,14 @@ struct ContentView: View {
     @State private var P8input: String = ""
     @State private var activePlayers: [String] = ["Player 1", "Player 2", "Player 3", "Player 4"]
     @State private var showButton: Bool = true
+    @State private var alert1: Bool = false
+    @State private var alert2: Bool = false
+    @State private var alert3: Bool = false
+    @State private var alert4: Bool = false
+    @State private var alert5: Bool = false
+    @State private var alert6: Bool = false
+    @State private var alert7: Bool = false
+    @State private var alert8: Bool = false
     @State var changes: [String] = []
     @State private var buttonText: String = "Add Player"
 
@@ -43,6 +51,7 @@ struct ContentView: View {
                                 players+=1
                                 if(players <= 8){
                                     activePlayers.append("Player " + String(players))
+                                    buttonText = "Add Player"
                                 } else{
                                     buttonText = "8 Players Max!"
                                 }
@@ -52,6 +61,7 @@ struct ContentView: View {
                         }
                         ForEach(activePlayers, id: \.self) {player in
                             if player == "Player 1"{
+                                
                                 VStack{
                                     HStack(spacing: 10) {
                                         Text("Player 1:").font(.headline).bold().italic()
@@ -78,6 +88,10 @@ struct ContentView: View {
                                             self.P1 += Int(P1input)!
                                             changes.append(P1input + " for Player 1")
                                             showButton = false
+                                            if (P1 <= 0){
+                                                alert1 = true
+                                                changes.append("Player 1 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -88,6 +102,8 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert1) { () -> Alert in
+                                        Alert(title: Text("Player 1 LOSES"))
                                     }
                                 }
                                 HStack() {
@@ -95,6 +111,10 @@ struct ContentView: View {
                                         self.P1 -= 1
                                         changes.append("-1 for Player 1")
                                         showButton = false
+                                        if (P1 <= 0){
+                                            alert1 = true
+                                            changes.append("Player 1 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -103,7 +123,8 @@ struct ContentView: View {
                                                 alignment: .center
                                                 )
                                             Text("-").foregroundColor(Color.white)
-                                        }                    }
+                                        }
+                                    }
                                     Button(action: {
                                         self.P1 += 1
                                         changes.append("+1 for Player 1")
@@ -147,6 +168,10 @@ struct ContentView: View {
                                             self.P2 += Int(P2input)!
                                             changes.append(P2input + " for Player 2")
                                             showButton = false
+                                            if (P2 <= 0){
+                                                alert2 = true
+                                                changes.append("Player 2 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -157,6 +182,8 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert2) { () -> Alert in
+                                        Alert(title: Text("Player 2 LOSES"))
                                     }
                                 }
                                 HStack {
@@ -164,6 +191,10 @@ struct ContentView: View {
                                         self.P2 -= 1
                                         changes.append("-1 for Player 2")
                                         showButton = false
+                                        if (P2 <= 0){
+                                            alert2 = true
+                                            changes.append("Player 2 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -215,6 +246,10 @@ struct ContentView: View {
                                             self.P3 += Int(P3input)!
                                             changes.append(P3input + " for Player 3")
                                             showButton = false
+                                            if (P3 <= 0){
+                                                alert3 = true
+                                                changes.append("Player 3 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -225,6 +260,8 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert3) { () -> Alert in
+                                        Alert(title: Text("Player 3 LOSES"))
                                     }
                                 }
                                 HStack {
@@ -232,6 +269,10 @@ struct ContentView: View {
                                         self.P3 -= 1
                                         changes.append("-1 for Player 3")
                                         showButton = false
+                                        if (P3 <= 0){
+                                            alert3 = true
+                                            changes.append("Player 3 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -283,6 +324,10 @@ struct ContentView: View {
                                             self.P4 += Int(P4input)!
                                             changes.append(P4input + " for Player 4")
                                             showButton = false
+                                            if (P4 <= 0){
+                                                alert4 = true
+                                                changes.append("Player 4 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -293,6 +338,8 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert4) { () -> Alert in
+                                        Alert(title: Text("Player 4 LOSES"))
                                     }
                                 }
                                 HStack {
@@ -300,6 +347,10 @@ struct ContentView: View {
                                         self.P4 -= 1
                                         changes.append("-1 for Player 4")
                                         showButton = false
+                                        if (P4 <= 0){
+                                            alert4 = true
+                                            changes.append("Player 4 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -351,6 +402,10 @@ struct ContentView: View {
                                             self.P5 += Int(P5input)!
                                             changes.append(P5input + " for Player 5")
                                             showButton = false
+                                            if (P5 <= 0){
+                                                alert5 = true
+                                                changes.append("Player 5 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -361,6 +416,8 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert5) { () -> Alert in
+                                        Alert(title: Text("Player 5 LOSES"))
                                     }
                                 }
                                 HStack {
@@ -368,6 +425,10 @@ struct ContentView: View {
                                         self.P5 -= 1
                                         changes.append("-1 for Player 5")
                                         showButton = false
+                                        if (P5 <= 0){
+                                            alert5 = true
+                                            changes.append("Player 5 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -419,6 +480,10 @@ struct ContentView: View {
                                             self.P6 += Int(P6input)!
                                             changes.append(P6input + " for Player 6")
                                             showButton = false
+                                            if (P6 <= 0){
+                                                alert6 = true
+                                                changes.append("Player 6 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -429,13 +494,20 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert6) { () -> Alert in
+                                        Alert(title: Text("Player 6 LOSES"))
                                     }
+
                                 }
                                 HStack {
                                     Button(action: {
                                         self.P6 -= 1
                                         changes.append("-1 for Player 6")
                                         showButton = false
+                                        if (P6 <= 0){
+                                            alert6 = true
+                                            changes.append("Player 6 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -487,6 +559,10 @@ struct ContentView: View {
                                             self.P7 += Int(P7input)!
                                             changes.append(P7input + " for Player 7")
                                             showButton = false
+                                            if (P7 <= 0){
+                                                alert7 = true
+                                                changes.append("Player 7 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -497,13 +573,20 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert7) { () -> Alert in
+                                        Alert(title: Text("Player 7 LOSES"))
                                     }
+
                                 }
                                 HStack {
                                     Button(action: {
                                         self.P7 -= 1
                                         changes.append("-1 for Player 7")
                                         showButton = false
+                                        if (P7 <= 0){
+                                            alert7 = true
+                                            changes.append("Player 7 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -555,6 +638,10 @@ struct ContentView: View {
                                             self.P8 += Int(P8input)!
                                             changes.append(P8input + " for Player 8")
                                             showButton = false
+                                            if (P8 <= 0){
+                                                alert8 = true
+                                                changes.append("Player 8 LOSES")
+                                            }
                                         }) {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius:0).frame(
@@ -565,6 +652,8 @@ struct ContentView: View {
                                                 Text("Enter").foregroundColor(Color.white)
                                             }
                                         }
+                                    }.alert(isPresented: $alert8) { () -> Alert in
+                                        Alert(title: Text("Player 8 LOSES"))
                                     }
                                 }
                                 HStack {
@@ -573,6 +662,10 @@ struct ContentView: View {
                                         self.P8 -= 1
                                         changes.append("-1 for Player 8")
                                         showButton = false
+                                        if (P8 <= 0){
+                                            alert8 = true
+                                            changes.append("Player 8 LOSES")
+                                        }
                                     }) {
                                         ZStack {
                                             RoundedRectangle(cornerRadius:30).fill(Color.red).frame(
@@ -623,6 +716,15 @@ struct ContentView: View {
                             P6input = ""
                             P7input = ""
                             P8input = ""
+                            buttonText = "Add Player"
+                            alert1 = false
+                            alert2 = false
+                            alert3 = false
+                            alert4 = false
+                            alert5 = false
+                            alert6 = false
+                            alert7 = false
+                            alert8 = false
                         }){
                             Text("Reset")
                         }
