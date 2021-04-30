@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.verticalSizeClass) var sizeClass
     
-    @State private var players: Int = 2
+    @State private var players: Int = 4
     @State private var P1: Int = 20
     @State private var P2: Int = 20
     @State private var P3: Int = 20
@@ -28,7 +28,7 @@ struct ContentView: View {
     @State private var P6input: String = ""
     @State private var P7input: String = ""
     @State private var P8input: String = ""
-    @State private var activePlayers: [String] = ["Player 1", "Player 2"]
+    @State private var activePlayers: [String] = ["Player 1", "Player 2", "Player 3", "Player 4"]
     @State private var showButton: Bool = true
     @State var changes: [String] = []
     @State private var buttonText: String = "Add Player"
@@ -58,6 +58,18 @@ struct ContentView: View {
                                         Text(String(P1)).font(.headline).bold().italic()
                                     }
                                     HStack{
+                                        Button(action: {
+                                            P1input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
                                         TextField("Input", text: $P1input)
                                             .keyboardType(.decimalPad)
                                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -109,9 +121,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 2"{
-                                HStack(spacing: 10) {
-                                    Text("Player 2:").font(.headline).bold().italic()
-                                    Text(String(P2)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 2:").font(.headline).bold().italic()
+                                        Text(String(P2)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P2input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P2input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P2 += Int(P2input)!
+                                            changes.append(P2input + " for Player 2")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     Button(action: {
@@ -143,9 +189,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 3"{
-                                HStack(spacing: 10) {
-                                    Text("Player 3:").font(.headline).bold().italic()
-                                    Text(String(P3)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 3:").font(.headline).bold().italic()
+                                        Text(String(P3)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P3input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P3input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P3 += Int(P3input)!
+                                            changes.append(P3input + " for Player 3")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     Button(action: {
@@ -177,9 +257,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 4"{
-                                HStack(spacing: 10) {
-                                    Text("Player 4:").font(.headline).bold().italic()
-                                    Text(String(P4)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 4:").font(.headline).bold().italic()
+                                        Text(String(P4)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P4input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P4input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P4 += Int(P4input)!
+                                            changes.append(P4input + " for Player 4")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     Button(action: {
@@ -211,9 +325,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 5"{
-                                HStack(spacing: 10) {
-                                    Text("Player 5:").font(.headline).bold().italic()
-                                    Text(String(P5)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 5:").font(.headline).bold().italic()
+                                        Text(String(P5)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P5input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P5input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P5 += Int(P5input)!
+                                            changes.append(P5input + " for Player 5")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     Button(action: {
@@ -245,9 +393,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 6"{
-                                HStack(spacing: 10) {
-                                    Text("Player 6:").font(.headline).bold().italic()
-                                    Text(String(P6)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 6:").font(.headline).bold().italic()
+                                        Text(String(P6)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P6input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P6input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P6 += Int(P6input)!
+                                            changes.append(P6input + " for Player 6")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     Button(action: {
@@ -279,9 +461,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 7"{
-                                HStack(spacing: 10) {
-                                    Text("Player 7:").font(.headline).bold().italic()
-                                    Text(String(P7)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 7:").font(.headline).bold().italic()
+                                        Text(String(P7)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P7input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P7input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P7 += Int(P7input)!
+                                            changes.append(P7input + " for Player 7")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     Button(action: {
@@ -313,9 +529,43 @@ struct ContentView: View {
                                 }
                             }
                             if player == "Player 8"{
-                                HStack(spacing: 10) {
-                                    Text("Player 8:").font(.headline).bold().italic()
-                                    Text(String(P8)).font(.headline).bold().italic()
+                                VStack{
+                                    HStack(spacing: 10) {
+                                        Text("Player 8:").font(.headline).bold().italic()
+                                        Text(String(P8)).font(.headline).bold().italic()
+                                    }
+                                    HStack{
+                                        Button(action: {
+                                            P8input = ""
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Clear").foregroundColor(Color.white)
+                                            }
+                                        }
+                                        TextField("Input", text: $P8input)
+                                            .keyboardType(.decimalPad)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .multilineTextAlignment(.center)
+                                        Button(action: {
+                                            self.P8 += Int(P8input)!
+                                            changes.append(P8input + " for Player 8")
+                                            showButton = false
+                                        }) {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius:0).frame(
+                                                    width: 50,
+                                                    height: 30,
+                                                    alignment: .center
+                                                    )
+                                                Text("Enter").foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }
                                 }
                                 HStack {
                                     
@@ -353,8 +603,8 @@ struct ContentView: View {
                             Text("History")
                         }
                         Button(action: {
-                            players = 2
-                            activePlayers = ["Player 1", "Player 2"]
+                            players = 4
+                            activePlayers = ["Player 1", "Player 2", "Player 3", "Player 4"]
                             P1 = 20
                             P2 = 20
                             P3 = 20
@@ -364,7 +614,7 @@ struct ContentView: View {
                             P7 = 20
                             P8 = 20
                             showButton = true
-                            changes = []
+                            changes.append("Reset!")
                             P1input = ""
                             P2input = ""
                             P3input = ""
