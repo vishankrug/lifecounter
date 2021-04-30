@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140BB3BF263A88BA00E278AC /* player.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140BB3BE263A88BA00E278AC /* player.xib */; };
 		14E5659A263120EF00AD2ED5 /* lifecounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E56599263120EF00AD2ED5 /* lifecounterApp.swift */; };
 		14E5659C263120EF00AD2ED5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5659B263120EF00AD2ED5 /* ContentView.swift */; };
 		14E5659E263120F100AD2ED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E5659D263120F100AD2ED5 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140BB3BE263A88BA00E278AC /* player.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = player.xib; sourceTree = "<group>"; };
 		14E56596263120EF00AD2ED5 /* lifecounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lifecounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E56599263120EF00AD2ED5 /* lifecounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lifecounterApp.swift; sourceTree = "<group>"; };
 		14E5659B263120EF00AD2ED5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				14E56599263120EF00AD2ED5 /* lifecounterApp.swift */,
 				14E5659B263120EF00AD2ED5 /* ContentView.swift */,
+				140BB3BE263A88BA00E278AC /* player.xib */,
 				14E5659D263120F100AD2ED5 /* Assets.xcassets */,
 				14E565A2263120F100AD2ED5 /* Info.plist */,
 				14E5659F263120F100AD2ED5 /* Preview Content */,
@@ -233,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140BB3BF263A88BA00E278AC /* player.xib in Resources */,
 				14E565A1263120F100AD2ED5 /* Preview Assets.xcassets in Resources */,
 				14E5659E263120F100AD2ED5 /* Assets.xcassets in Resources */,
 			);
